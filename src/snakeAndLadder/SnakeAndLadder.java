@@ -17,10 +17,9 @@ public class SnakeAndLadder {
 	}
 	public static void options() {
 		int position=0;
-		int count=0;
-		while(position <100)
+		while(position <=100)
 		{
-			count++;
+	
 		int check =(int)(Math.random()*10)%3+1;
 		System.out.println("check "+check);
 		int dice=RollDice();
@@ -37,7 +36,6 @@ public class SnakeAndLadder {
 			default:
 				System.out.println("Player not playing");
 		}
-		System.out.println("Count"+count);
 		
 	}
 	}
