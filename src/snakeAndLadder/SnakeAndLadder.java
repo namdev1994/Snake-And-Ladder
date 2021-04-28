@@ -10,14 +10,17 @@ public class SnakeAndLadder {
 }
 	public static int RollDice()
 	{
-		Random rand =new Random();
-		int dice=rand.nextInt(6)+1;
+		int dice=(int)(Math.floor(Math.random()*10)%6+1);
 		System.out.println("Dice "+dice);
 		return dice;
 
 	}
 	public static void options() {
 		int position=0;
+		int count=0;
+		while(position <100)
+		{
+			count++;
 		int check =(int)(Math.random()*10)%3+1;
 		System.out.println("check "+check);
 		int dice=RollDice();
@@ -29,10 +32,13 @@ public class SnakeAndLadder {
 			break;
 		case 2:
 			position+=dice;
-			System.out.println("Postion is "+position);
+			System.out.println("playing "+position);
 			break;
 			default:
 				System.out.println("Player not playing");
 		}
+		System.out.println("Count"+count);
+		
+	}
 	}
 }
