@@ -15,9 +15,11 @@ public class SnakeAndLadder {
 
 	}
 	public static void options() {
-		int position=0;
+		
+		int player1_position=0,player2_position=0;
 		int count=0;
-		while(position <100)
+		boolean check1=true;
+		while(player1_position <100 && player2_position < 100)
 		{
 		count++;
 		int check =(int)(Math.floor(Math.random()*10)%3+1);
@@ -27,28 +29,73 @@ public class SnakeAndLadder {
 		switch(check)
 		{
 		case 1:
-			System.out.println("This is position "+position);
+			if(check1)
+			{
+				System.out.println("Player1 is not Playing ");
+				check1=false;
+			}
+			else
+			{
+				System.out.println("player2 is not Playing ");
+				check1=true;
+			}
+		
 			break;
 		case 2:
-			position+=dice;
-			if(position > 100)
+			if(check1) {
+				
+			
+			if((player1_position+dice) <= 100)
 			{
-				position=position - dice;
+				player1_position=player1_position +dice;
 			}
-			System.out.println("The position is  "+position);
+			System.out.println("The position of player1  is  "+player1_position);
+			}
+			else
+			{
+				if ((player2_position+dice)<=100) {
+					player2_position=player2_position+dice;
+					}
+					System.out.println("Position of the player2 is "+ player2_position);
+					
+					}
+			
 			break;
 		case 3:
-			position = position - dice;
-			System.out.println("The position is "+position);
-			if(position < 0)
-			{
-				position=0;
-			}
+			if(check1) {
+				check1=false;
+				player1_position=player1_position - dice;
+				if((player1_position-dice)<0) {
+				player1_position=0;
+				}
+
+				System.out.println("Position of the player1: "+ player1_position);
+				
+				}else
+				{
+				check1=true;
+				player2_position=player2_position - dice;
+				if((player2_position-dice)<0) {
+				player2_position=0;
+				}
+
+				System.out.println("Position of the player2: "+ player2_position);
+				
+				}
 			break;
 		}
-		System.out.println("Count = "+count);
 		}
+		if(player1_position == 100)
+		{
+			System.out.println("Player1 is winner ");
+		}
+		else
+		{
+			System.out.println("Player2 is Winner");
 		
+		}
+		System.out.println("Count = "+count);
+
 		}
 }
 	
