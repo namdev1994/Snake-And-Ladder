@@ -4,24 +4,23 @@ import java.util.*;
 public class SnakeAndLadder {
 
 	public static void main(String[] args) {
-		RollDice();
+
 		options();
 
 }
 	public static int RollDice()
 	{
 		int dice=(int)(Math.floor(Math.random()*10)%6+1);
-		System.out.println("Dice "+dice);
 		return dice;
 
 	}
 	public static void options() {
 		int position=0;
-		int count=0;
-		while(position <=100)
+
+		while(position <100)
 		{
-			count++;
-		int check =(int)(Math.random()*10)%3+1;
+		
+		int check =(int)(Math.floor(Math.random()*10)%3+1);
 		System.out.println("check "+check);
 		int dice=RollDice();
 		System.out.println("Dice number "+dice);
@@ -32,12 +31,24 @@ public class SnakeAndLadder {
 			break;
 		case 2:
 			position+=dice;
-			System.out.println("playing "+position);
+			if(position > 100)
+			{
+				position=position - dice;
+			}
+			System.out.println("The position is  "+position);
 			break;
-			default:
-				System.out.println("Player not playing");
+		case 3:
+			position = position - dice;
+			System.out.println("The position is "+position);
+			if(position < 0)
+			{
+				position=0;
+			}
+			break;
 		}
-		System.out.println("Count = "+count);
-	}
-	}
+		}
+		
+		}
 }
+	
+		
