@@ -17,7 +17,8 @@ public class SnakeAndLadder {
 	}
 	public static void options() {
 		int position=0;
-		
+		while(position<100)
+		{
 		int check =(int)(Math.random()*10)%3+1;
 		System.out.println("check "+check);
 		int dice=RollDice();
@@ -37,6 +38,7 @@ public class SnakeAndLadder {
 		}
 
 	
+	}
 	}
 
 }
